@@ -691,10 +691,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 .main_footer_container{
   width: 100%;
-  max-width: 1200px;
+  max-width: 1440px;
   margin: 0 auto;
 
-  padding: 64px 50px;
+  padding: 64px 26px 64px  50px;
   display: flex;
   align-items: center;
   justify-content: space-between;
