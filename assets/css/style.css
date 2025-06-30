@@ -507,6 +507,7 @@ a:active, .cursor:active, button:active{
   font-size: 16px;
   height: 40px;
   color: rgba(0, 0, 0, 0.85);
+  background: #FFFFFF;
 }
 
 .main_content .main_content_search_option select {
@@ -544,6 +545,7 @@ a:active, .cursor:active, button:active{
   appearance: none;
   width: 91px;
   height: 38px;
+  background: #FFFFFF;
 }
 .main_content .main_content_search_option .search_keyword{
   flex: 1;
