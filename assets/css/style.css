@@ -546,6 +546,7 @@ a:active, .cursor:active, button:active{
   width: 91px;
   height: 38px;
   background: #FFFFFF;
+  text-align: left;
 }
 .main_content .main_content_search_option .search_keyword{
   flex: 1;
