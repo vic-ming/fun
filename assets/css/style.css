@@ -304,7 +304,7 @@ a:active, .cursor:active, button:active{
   margin: 15px auto;
   width: 236px;
   border-radius: 8px;
-  justify-content: space-between;
+  justify-content: center;
   background: #FFFFFF1A;
   align-items: center;
   height: 40px;
