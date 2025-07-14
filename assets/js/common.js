@@ -224,3 +224,77 @@ function announceToScreenReader(message) {
     document.body.removeChild(announcement);
   }, 1000);
 }
+
+// 訂閱彈窗開啟
+function openModal(){
+  const subscribeModal = document.querySelector('.subscribe_modal');
+  subscribeModal.classList.add('active');
+  
+  // 設置 ARIA 屬性
+  subscribeModal.setAttribute('aria-hidden', 'false');
+  subscribeModal.setAttribute('aria-modal', 'true');
+  
+  // 保存當前焦點元素
+  const activeElement = document.activeElement;
+  subscribeModal.setAttribute('data-previous-focus', activeElement.tagName);
+  
+  // 設置焦點到第一個可聚焦元素
+  setTimeout(() => {
+    const firstFocusable = subscribeModal.querySelector('input, button, a');
+    if (firstFocusable) {
+      firstFocusable.focus();
+    }
+  }, 100);
+  
+  // 設置鍵盤陷阱
+  trapFocus(subscribeModal);
+  
+  // 添加 ESC 鍵監聽
+  document.addEventListener('keydown', handleModalEscape);
+  
+  // 添加背景點擊關閉
+  subscribeModal.addEventListener('click', handleModalBackgroundClick);
+  
+  // 防止背景滾動
+  document.body.style.overflow = 'hidden';
+}
+
+// 訂閱彈窗關閉
+function closeModal(){
+  const subscribeModal = document.querySelector('.subscribe_modal');
+  subscribeModal.classList.remove('active');
+  
+  // 恢復 ARIA 屬性
+  subscribeModal.setAttribute('aria-hidden', 'true');
+  subscribeModal.removeAttribute('aria-modal');
+  
+  // 恢復焦點到觸發元素
+  const triggerButtons = document.querySelectorAll('button[onclick="openModal()"]');
+  if (triggerButtons.length > 0) {
+    triggerButtons[0].focus();
+  }
+  
+  // 移除事件監聽器
+  document.removeEventListener('keydown', handleModalEscape);
+  subscribeModal.removeEventListener('click', handleModalBackgroundClick);
+  
+  // 移除鍵盤陷阱
+  removeTrapFocus(subscribeModal);
+  
+  // 恢復背景滾動
+  document.body.style.overflow = '';
+}
+
+// ESC 鍵關閉彈窗
+function handleModalEscape(e) {
+  if (e.key === 'Escape') {
+    closeModal();
+  }
+}
+
+// 背景點擊關閉彈窗
+function handleModalBackgroundClick(e) {
+  if (e.target === e.currentTarget) {
+    closeModal();
+  }
+}

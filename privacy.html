@@ -34,14 +34,14 @@
           </div>
           <div class="header_right">
             <nav role="navigation" aria-label="主要導航">
-              <a href="#" class="active" aria-current="page">FUN首頁</a>
+              <a href="/">FUN首頁</a>
               <a href="/map.html">網站地圖</a>
               <a  type="button" onclick="scrollToBottom()">聯絡我們</a>
             </nav>
             <div class="desktop_email">
               <label for="desktop-email-input" class="sr-only">電子郵件地址</label>
               <input type="email" id="desktop-email-input" placeholder="請輸入您的email" aria-describedby="email-help">
-              <button type="button" aria-describedby="email-help">訂閱</button>
+              <button type="button" aria-describedby="email-help" onclick="openModal()">訂閱</button>
               <div id="email-help" class="sr-only">訂閱電子報以接收最新文化活動資訊</div>
             </div>
             <div class="desktop_newspaper" role="status" aria-label="訂閱人數統計">
@@ -64,7 +64,7 @@
         <!-- mobile menu -->
         <div class="mobile_menu" id="mobile_menu" role="navigation" aria-label="行動版導航" aria-hidden="true">
           <nav>
-            <a href="#" class="active" aria-current="page">FUN首頁</a>
+            <a href="/">FUN首頁</a>
             <a href="/map.html">網站地圖</a>
             <a href="#" type="button" onclick="scrollToBottom()">聯絡我們</a>
           </nav>
@@ -76,8 +76,38 @@
           <div class="mobile_email">
             <label for="mobile-email-input" class="sr-only">電子郵件地址</label>
             <input type="email" id="mobile-email-input" placeholder="請輸入您的email" aria-describedby="mobile-email-help">
-            <button type="button" aria-describedby="mobile-email-help">訂閱</button>
+            <button type="button" aria-describedby="mobile-email-help" onclick="openModal()">訂閱</button>
             <div id="mobile-email-help" class="sr-only">訂閱電子報以接收最新文化活動資訊</div>
+          </div>
+        </div>
+
+        <!-- 訂閱彈窗 -->
+        <div class="subscribe_modal" role="dialog" aria-label="訂閱彈窗" aria-hidden="true">
+          <div class="subscribe_modal_content">
+            <button class="subscribe_modal_close" type="button" onclick="closeModal()" aria-label="關閉訂閱彈窗">
+              <img src="./assets/images/close.svg" alt="" aria-hidden="true">
+            </button>
+            <div class="common_title mb_0">
+              <div class="en_title">Subscription instructions</div>
+              <div class="ch_title">訂閱須知</div>
+              <div class="line"></div>  
+            </div>
+            <div class="subscribe_modal_content_text">
+              <p>1. 本系統以寄發藝文活動訊息之電子文宣為主，若寄收流程因寄件方之寄發系統誤動作或收件方之郵件過濾系統判定為廣告郵件或垃圾郵件，而造成您無法收到訂閱之電子文宣，本局先此致歉，敬請見諒。</p>
+              <p>2. 本系統僅記錄您所留下之電子信箱帳號，您的訂閱即表示您同意本局透過此帳號寄發任何藝文活動訊息，並放棄任何法律訴訟權利。未來，如果您想取消訂閱帳號，請您利用系統的取消訂閱功能或上網至本局網站 https://edm.khcc.gov.tw/home02.aspx?ID=1 取消您的電子信箱帳號。</p>
+              <p>3. 若您已訂閱卻無法收到信件或已取消訂閱而訊息仍然持續發送，請您於週一至週五（例假日及國定假日除外）上午9：00~12：00 下午14：00~17：00 以電話07-2225136轉666聯絡我們(註：避免以e-mail或局長信箱傳遞)，我們將立即為您服務。謝謝！</p>
+            </div>
+
+            <div class="subscribe_modal_content_captcha">
+              <div class="subscribe_modal_content_captcha_title" id="captcha-title">圖形驗證</div>
+              <div class="subscribe_modal_content_captcha_input_container">
+                <label for="captcha-input" class="sr-only">驗證碼</label>
+                <input class="subscribe_modal_content_captcha_input" type="text" id="captcha-input" placeholder="請輸入圖形驗證碼" aria-labelledby="captcha-title" aria-describedby="captcha-help" required>
+                <div id="captcha-help" class="sr-only">請輸入圖形中顯示的數字或字母</div>
+                <button type="button" class="subscribe_modal_content_captcha_button" aria-describedby="captcha-input">訂閱</button>
+              </div>
+              <a href="#" class="subscribe_modal_search" role="button">檢索</a>
+            </div>
           </div>
         </div>
       </header>
@@ -168,9 +198,7 @@
               <a href="https://www.facebook.com/chenchimai/?ref=embed_page#" target="_blank" aria-label="前往高雄市政府文化局Facebook粉絲專頁，開啟新視窗">
                 <img src="./assets/images/fb.svg" alt="Facebook">
               </a>              
-              <a href="#" target="_blank" aria-label="網站通過無障礙AA等級檢測，開啟新視窗查看證書">
-                <img src="./assets/images/AA.png" alt="無障礙網頁AA等級標章" class="aa_logo">
-              </a>
+              <img src="./assets/images/AA.png" alt="無障礙網頁AA等級標章" class="aa_logo">
             </div>
             <div>
               <div class="link">
