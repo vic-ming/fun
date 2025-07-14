@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="icon" href="./assets/favicon.ico"> -->
+    <title>高雄市政府文化局 - 歷史電子文宣</title>
+    <meta name="description" content="高雄市政府文化局歷史電子文宣資料庫，提供藝文活動月刊、文化活動資訊等電子出版品查詢服務。">
+    <!-- 字體 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
+    <!-- 共用樣式 -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- swiper -->
+    <link rel="stylesheet" href="./assets/css/swiper-bundle.min.css">
+    <script src="./assets/js/swiper-bundle.min.js"></script>
+  </head>
+  <noscript>您的瀏覽器不支援JavaScript功能，若網頁功能無法正常使用時，請開啟瀏覽器JavaScript狀態</noscript>
+  <body>
+    <!-- 跳過導航連結 -->
+    <a href="#main-content" class="skip-link">跳至主要內容</a>
+    
+    <div class="hps_view">
+      <!-- header -->
+      <header class="main_header" role="banner">
+        <a id="header-start" class="access_link pl" accesskey="u" href="#header-start" title="頂部內容區塊">:::</a>
+        <div class="header_container">
+          <div class="header_logo">
+            <a href="/" aria-label="回到高雄市政府文化局首頁">
+              <img src="../assets/images/logo.webp" alt="高雄市政府文化局標誌">
+            </a>
+          </div>
+          <div class="header_right">
+            <nav role="navigation" aria-label="主要導航">
+              <a href="#" class="active" aria-current="page">FUN首頁</a>
+              <a href="/map.html">網站地圖</a>
+              <a  type="button" onclick="scrollToBottom()">聯絡我們</a>
+            </nav>
+            <div class="desktop_email">
+              <label for="desktop-email-input" class="sr-only">電子郵件地址</label>
+              <input type="email" id="desktop-email-input" placeholder="請輸入您的email" aria-describedby="email-help">
+              <button type="button" aria-describedby="email-help">訂閱</button>
+              <div id="email-help" class="sr-only">訂閱電子報以接收最新文化活動資訊</div>
+            </div>
+            <div class="desktop_newspaper" role="status" aria-label="訂閱人數統計">
+              <img src="./assets/images/newspaper.svg" alt="訂閱圖示" aria-hidden="true">
+              <p><span class="sr-only">目前訂閱人數：</span>999,999,999</p>
+            </div>
+          </div>
+          <button 
+            class="header_right_mobile" 
+            onclick="turnMobileMenu()" 
+            aria-expanded="false" 
+            aria-controls="mobile_menu"
+            aria-label="開啟行動版選單"
+            type="button"
+          >
+            <img src="./assets/images/menu.svg" alt="" aria-hidden="true">
+          </button>
+        </div>
+        
+        <!-- mobile menu -->
+        <div class="mobile_menu" id="mobile_menu" role="navigation" aria-label="行動版導航" aria-hidden="true">
+          <nav>
+            <a href="#" class="active" aria-current="page">FUN首頁</a>
+            <a href="/map.html">網站地圖</a>
+            <a href="#" type="button" onclick="scrollToBottom()">聯絡我們</a>
+          </nav>
+         
+          <div class="mobile_newspaper" role="status" aria-label="訂閱人數統計">
+            <img src="./assets/images/newspaper.svg" alt="訂閱圖示" aria-hidden="true">
+            <p><span class="sr-only">目前訂閱人數：</span>999,999,999</p>
+          </div>
+          <div class="mobile_email">
+            <label for="mobile-email-input" class="sr-only">電子郵件地址</label>
+            <input type="email" id="mobile-email-input" placeholder="請輸入您的email" aria-describedby="mobile-email-help">
+            <button type="button" aria-describedby="mobile-email-help">訂閱</button>
+            <div id="mobile-email-help" class="sr-only">訂閱電子報以接收最新文化活動資訊</div>
+          </div>
+        </div>
+      </header>
+
+      <!-- main -->
+      <main class="map_main main" id="main-content" role="main">
+        <div class="main_content">
+          <a id="content-start" class="access_link" accesskey="c" href="#content-start" title="主要內容區塊">:::</a>
+          <div class="common_title">
+            <div class="en_title">Privacy Policy</div>
+            <div class="ch_title">隱私權宣告</div>
+            <div class="line"></div>  
+          </div>
+          <div class="common_content">
+            <p>您好，歡迎您來到「高雄市政府文化局全球資訊網」（以下簡稱本網站）。為了讓您安心使用本網站所提供之各項服務與資訊，特此向您說明本網站的隱私權保護政策，以保障您的權益，請您詳閱下列內容：</p>
+            <br>
+            <p>一、隱私權保護政策的適用範圍</p>
+            <p>本政策內容包括本網站如何處理在您使用網站服務時所收集到的個人識別資料。</p>
+            <p>本政策不適用於本網站以外的其他連結網站，亦不適用於非本網站所委託或參與管理的人員（例如外部連結網站之管理者）。</p>
+            <br>
+            <p>二、個人資料的蒐集、處理及利用方式</p>
+            <p>1.本網站以不主動收集個人資料為原則。當您瀏覽本網站或進行檔案下載時，本站不會蒐集任何與個人身份有關之資料，亦不進行身份識別追蹤。</p>
+            <br>
+            <p>2.當您使用本網站「局長信箱」服務時，需提供相關個人資訊（如姓名、地址、聯絡電話及電子郵件地址等真實資料）。此為依據「高雄市政府及所屬各機關處理人民陳情案件要點」之規定辦理，資料僅用於回覆與處理您的陳情事項。</p>
+            <br>
+            <p>3.本網站使用第三方分析服務提供商（目前為 Google Analytics）分析 cookie 所收集之資訊。該分析服務不會透過 cookie 取得個人資料。若您不願被收集，請於瀏覽器安裝 Google 提供之拒絕追蹤外掛程式，以避免 cookie 資料被蒐集。</p>
+            <br>
+            <p>4.本網站所蒐集之個人資料，將依據《個人資料保護法》及相關法律規定進行處理，不會任意出售、交換或出租予其他機構、團體或個人，除非屬下列情形：</p>
+            <br>
+            <p>(1) 配合司法機關合法調查；</p>
+            <br>
+            <p>(2) 配合具有法定職權機關，依其職務需要之調查或使用。</p>
+            <p>本網站於前述必要情形下揭露資料時，仍將遵守合法程序與比例原則。</p>
+            <br>
+            <p>5.本網站部分頁面可能嵌入來自第三方網站之內容（如 YouTube）。該等第三方網站可能使用技術以提供個人化內容，惟不代表本網站立場，建議您參考其隱私權保護政策以瞭解更多資訊。</p>
+            <br>
+            <p>6.本網站所有頁面資料如需引用，請註明出處。若使用本站圖檔、影音資料、樂譜、專文內容或其他著作，應先取得授權。涉及肖像權、著作權、音樂著作權等素材者，請務必遵守《著作權法》、《個人資料保護法》及其他相關法規，不得任意重製、散布或公開傳輸。</p>
+            <br>
+            <p>7.使用本網站授權提供之資料與素材者，不得擅自或惡意變更其內容。若利用後所呈現資訊與原始資料不符，導致誤導或侵權，使用者應自負民事與刑事責任。</p>
+            <br>
+            <p>三、資料之保護</p>
+            <p>本網站採用 SSL 加密傳輸機制，主機設有防火牆、防毒系統，並定期執行弱點掃描與修補漏洞，強化資訊安全。</p>
+            <p>相關人員均簽署保密文件，委外廠商亦須簽署資安與保密協議，並接受定期稽核。</p>
+            <br>
+            <p>四、網站對外的相關連結</p>
+            <p>本網站頁面可能提供指向其他網站之超連結，惟本局對該等外部網站之內容正確性及其隱私保護政策不負任何責任。</p>
+            <p>該等網站不適用本網站之隱私權保護政策，建議您參閱其個別網站之政策內容。</p>
+            <br>
+            <p>五、Cookie 之使用</p>
+            <p>為提供更佳服務，本網站會在您的電腦中儲存並讀取 Cookie。</p>
+            <p>若您不願接受 Cookie，可於瀏覽器設定中將隱私權等級調為高，即可拒絕寫入，但可能導致部分功能無法正常運作。</p>
+            <br>
+            <p>六、隱私權保護政策之修正</p>
+            <p>本網站隱私權保護政策將因應需求適時修訂。</p>
+            <p>修訂後條文將公告於網站上並自公告日起生效；如涉及重大變更，將另行於首頁或其他明顯位置公告提醒使用者注意。</p>
+          </div>
+        </div>
+       
+      </main>
+      
+      <!-- footer -->
+      <footer class="main_footer" role="contentinfo">
+        <a id="footer-start" class="access_link pl" accesskey="b" href="#footer-start" title="底部內容區塊">:::</a>
+        <div class="main_footer_container">
+          
+          <!-- left -->
+          <div class="main_footer_left">
+            
+            <a href="/" aria-label="回到高雄市政府文化局首頁">
+              <img class="main_footer_left_logo" src="./assets/images/logo.webp" alt="高雄市政府文化局標誌">
+            </a>
+            <address class="main_footer_left_info">
+              <a href="https://maps.app.goo.gl/xng8h5YG975ax1Xh9" target="_blank" class="main_footer_left_info_item" aria-label="在Google地圖中查看高雄市政府文化局地址，開啟新視窗">
+                <img src="./assets/images/map.svg" alt="" aria-hidden="true">
+                <p>80252 高雄市五福一路67號</p>
+              </a>
+              <a href="tel:07-222-5136" class="main_footer_left_info_item" aria-label="撥打電話07-222-5136">
+                <img src="./assets/images/telephone.svg" alt="" aria-hidden="true">
+                <p>07-222-5136</p>
+              </a>
+            </address>
+            <p class="main_footer_left_copyright">版權所有 © 高雄市政府文化局</p>
+          </div>
+          <!-- right -->
+          <div class="main_footer_right">
+            <div class="platform" role="group" aria-label="社群媒體連結">
+            
+              <a href="https://www.facebook.com/chenchimai/?ref=embed_page#" target="_blank" aria-label="前往高雄市政府文化局Facebook粉絲專頁，開啟新視窗">
+                <img src="./assets/images/fb.svg" alt="Facebook">
+              </a>              
+              <a href="#" target="_blank" aria-label="網站通過無障礙AA等級檢測，開啟新視窗查看證書">
+                <img src="./assets/images/AA.png" alt="無障礙網頁AA等級標章" class="aa_logo">
+              </a>
+            </div>
+            <div>
+              <div class="link">
+                <a href="/security.html" aria-label="查看資訊安全政策宣告">資訊安全政策宣告</a>
+                <a href="/privacy.html" aria-label="查看隱私權宣告">隱私權宣告</a>
+              </div>
+              <div class="ps">最佳瀏覽環境IE9以上 | 最佳瀏覽解析度1024X768 </div>
+            </div>
+            <a class="back_top" href="#" onclick="backToTop(); return false;" aria-label="回到頁面頂端">
+              TOP
+              <img src="./assets/images/angle-up.svg" alt="" aria-hidden="true">
+            </a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <!-- jquery  -->
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <!-- 共用方法 -->
+    <script src="./assets/js/common.js"></script>
+  </body>
+</html>
+</html>

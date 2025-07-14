@@ -4,115 +4,133 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="icon" href="/assets/favicon.ico"> -->
-    <title>高雄市政府文化局</title>
+    <!-- <link rel="icon" href="./assets/favicon.ico"> -->
+    <title>高雄市政府文化局 - 歷史電子文宣</title>
+    <meta name="description" content="高雄市政府文化局歷史電子文宣資料庫，提供藝文活動月刊、文化活動資訊等電子出版品查詢服務。">
     <!-- 字體 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
     <!-- 共用樣式 -->
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <!-- swiper -->
-    <link rel="stylesheet" href="/assets/css/swiper-bundle.min.css">
-    <script src="/assets/js/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="./assets/css/swiper-bundle.min.css">
+    <script src="./assets/js/swiper-bundle.min.js"></script>
   </head>
   <noscript>您的瀏覽器不支援JavaScript功能，若網頁功能無法正常使用時，請開啟瀏覽器JavaScript狀態</noscript>
   <body>
+    <!-- 跳過導航連結 -->
+    <a href="#main-content" class="skip-link">跳至主要內容</a>
+    
     <div class="hps_view">
       <!-- header -->
-      <div class="main_header">
+      <header class="main_header" role="banner">
+        <a id="header-start" class="access_link pl" accesskey="u" href="#header-start" title="頂部內容區塊">:::</a>
         <div class="header_container">
           <div class="header_logo">
-            <a href="/">
-              <img src="./assets/images/logo.webp" alt="高雄市政府文化局">
+            <a href="/" aria-label="回到高雄市政府文化局首頁">
+              <img src="../assets/images/logo.webp" alt="高雄市政府文化局標誌">
             </a>
           </div>
           <div class="header_right">
-            <nav>
-              <a class="active">FUN首頁</a>
-              <a>網站地圖</a>
-              <a>聯絡我們</a>
+            <nav role="navigation" aria-label="主要導航">
+              <a href="#" class="active" aria-current="page">FUN首頁</a>
+              <a href="/map.html">網站地圖</a>
+              <a href="#" type="button" onclick="scrollToBottom()">聯絡我們</a>
             </nav>
             <div class="desktop_email">
-              <input type="text" placeholder="請輸入您的email">
-              <button>訂閱</button>
+              <label for="desktop-email-input" class="sr-only">電子郵件地址</label>
+              <input type="email" id="desktop-email-input" placeholder="請輸入您的email" aria-describedby="email-help">
+              <button type="button" aria-describedby="email-help">訂閱</button>
+              <div id="email-help" class="sr-only">訂閱電子報以接收最新文化活動資訊</div>
             </div>
-            <div class="desktop_newspaper">
-              <img src="/assets/images/newspaper.svg" alt="">
-              <p>999,999,999</p>
+            <div class="desktop_newspaper" role="status" aria-label="訂閱人數統計">
+              <img src="./assets/images/newspaper.svg" alt="訂閱圖示" aria-hidden="true">
+              <p><span class="sr-only">目前訂閱人數：</span>999,999,999</p>
             </div>
           </div>
-          <a href="javascript:;" onclick="turnMobileMenu()" class="header_right_mobile">
-            <img src="/assets/images/menu.svg" alt="menu">
-          </a>
+          <button 
+            class="header_right_mobile" 
+            onclick="turnMobileMenu()" 
+            aria-expanded="false" 
+            aria-controls="mobile_menu"
+            aria-label="開啟行動版選單"
+            type="button"
+          >
+            <img src="./assets/images/menu.svg" alt="" aria-hidden="true">
+          </button>
         </div>
         
-      
         <!-- mobile menu -->
-        <div class="mobile_menu" id="mobile_menu">
+        <div class="mobile_menu" id="mobile_menu" role="navigation" aria-label="行動版導航" aria-hidden="true">
           <nav>
-            <a class="active">FUN首頁</a>
-            <a>網站地圖</a>
-            <a>聯絡我們</a>
+            <a href="#" class="active" aria-current="page">FUN首頁</a>
+            <a href="/map.html">網站地圖</a>
+            <a href="#" type="button" onclick="scrollToBottom()">聯絡我們</a>
           </nav>
          
-          <div class="mobile_newspaper">
-            <img src="/assets/images/newspaper.svg" alt="">
-            <p>999,999,999</p>
+          <div class="mobile_newspaper" role="status" aria-label="訂閱人數統計">
+            <img src="./assets/images/newspaper.svg" alt="訂閱圖示" aria-hidden="true">
+            <p><span class="sr-only">目前訂閱人數：</span>999,999,999</p>
           </div>
           <div class="mobile_email">
-            <input type="text" placeholder="請輸入您的email">
-            <button>訂閱</button>
+            <label for="mobile-email-input" class="sr-only">電子郵件地址</label>
+            <input type="email" id="mobile-email-input" placeholder="請輸入您的email" aria-describedby="mobile-email-help">
+            <button type="button" aria-describedby="mobile-email-help">訂閱</button>
+            <div id="mobile-email-help" class="sr-only">訂閱電子報以接收最新文化活動資訊</div>
           </div>
         </div>
-      </div>
+      </header>
 
       <!-- main -->
-      <div class="index_main main">
+      <main class="index_main main" id="main-content" role="main">
         <!-- banner -->
-        <div class="banner_container">
+        <section class="banner_container" role="banner" aria-label="主要橫幅">
           <div class="banner_info">
             <div class="banner_info_content">
-              <div class="info_type">2025年5月藝文活動月刊</div>
               <h1 class="info_title">弄臣</h1>
-              <p class="info_content">歌劇《弄臣》Rigoletto<br>鬧劇般的時代悲劇，一場善惡、愛恨與復仇的交...</p>
-              <button class="info_button">立即查看</button>
+              <button class="info_button" type="button" aria-label="查看弄臣歌劇詳細資訊">立即查看</button>
             </div>
-            <div class="banner-pagination"></div>
+            <div class="banner-pagination" role="tablist" aria-label="橫幅輪播控制"></div>
           </div>
-          <div class="banner-swiper">
+          <div class="banner-swiper" role="region" aria-label="文化活動橫幅輪播" aria-live="polite">
             <div class="banner_swiper_wrapper swiper-wrapper">
-              <div class="banner_swiper_slide swiper-slide">
-                <img src="/assets/images/banner.webp" alt="banner">
+              <div class="banner_swiper_slide swiper-slide" role="tabpanel" aria-label="橫幅 1">
+                <img src="./assets/images/banner.webp" alt="弄臣歌劇宣傳圖 - 2025年5月藝文活動">
               </div>
-              <div class="banner_swiper_slide swiper-slide">
-                <img src="/assets/images/banner.webp" alt="banner">
+              <div class="banner_swiper_slide swiper-slide" role="tabpanel" aria-label="橫幅 2">
+                <img src="./assets/images/banner.webp" alt="弄臣歌劇宣傳圖 - 2025年5月藝文活動">
               </div>
-              <div class="banner_swiper_slide swiper-slide">
-                <img src="/assets/images/banner.webp" alt="banner">
+              <div class="banner_swiper_slide swiper-slide" role="tabpanel" aria-label="橫幅 3">
+                <img src="./assets/images/banner.webp" alt="弄臣歌劇宣傳圖 - 2025年5月藝文活動">
               </div>
-              <div class="banner_swiper_slide swiper-slide">
-                <img src="/assets/images/banner.webp" alt="banner">
+              <div class="banner_swiper_slide swiper-slide" role="tabpanel" aria-label="橫幅 4">
+                <img src="./assets/images/banner.webp" alt="弄臣歌劇宣傳圖 - 2025年5月藝文活動">
               </div>
-              <div class="banner_swiper_slide swiper-slide">
-                <img src="/assets/images/banner.webp" alt="banner">
+              <div class="banner_swiper_slide swiper-slide" role="tabpanel" aria-label="橫幅 5">
+                <img src="./assets/images/banner.webp" alt="弄臣歌劇宣傳圖 - 2025年5月藝文活動">
               </div>
             </div>
           </div>
-          <div class="banner_cover"></div>
-        </div>
+          <div class="banner_cover" aria-hidden="true"></div>
+        </section>
+        
         <!-- main content -->
-        <div class="main_content">
+        <section class="main_content">
+          <a id="content-start" class="access_link" accesskey="c" href="#content-start" title="主要內容區塊">:::</a>
           <!-- title -->
           <div class="main_content_title">
             <p>Historical electronic publications</p>
             <h1>歷史電子文宣</h1>
-            <div class="wire"></div>
+            <div class="wire" aria-hidden="true"></div>
           </div>
+          
           <!-- search -->
-          <div class="main_content_search">
+          <section class="main_content_search" role="search" aria-label="電子文宣搜尋功能">
+            <h2 class="sr-only">搜尋條件設定</h2>
             <div class="main_content_search_option">
-              <select class="search_select" name="year" id="year">
+              <label for="year" class="sr-only">選擇年份</label>
+              <select class="search_select" name="year" id="year" aria-describedby="year-help">
                 <option value="">不限年份</option>
                 <option value="2020">2020</option>
                 <option value="2021">2021</option>
@@ -121,33 +139,49 @@
                 <option value="2024">2024</option>
                 <option value="2025">2025</option>
               </select>
-              <div class="search_date_range">
-                <input class="search_date" name="start_date" id="start_date" type="date" value="2020-11-08">
-                <img class="swap_icon" src="/assets/images/swap-right.svg" alt="swap">
-                <input class="search_date" name="end_date" id="end_date" type="date" value="2020-12-23">
-                <img class="calendar_icon" src="/assets/images/calendar.svg" alt="swap">
+              <div id="year-help" class="sr-only">選擇要搜尋的年份範圍</div>
+              
+              <div class="search_date_range" role="group" aria-labelledby="date-range-label">
+                <label id="date-range-label" class="sr-only">日期範圍</label>
+                <label for="start_date" class="sr-only">開始日期</label>
+                <input class="search_date" name="start_date" id="start_date" type="date" value="2020-11-08" aria-describedby="date-help">
+                <img class="swap_icon" src="./assets/images/swap-right.svg" alt="至" aria-hidden="true">
+                <label for="end_date" class="sr-only">結束日期</label>
+                <input class="search_date" name="end_date" id="end_date" type="date" value="2020-12-23" aria-describedby="date-help">
+                <img class="calendar_icon" src="./assets/images/calendar.svg" alt="日曆" aria-hidden="true">
+                <div id="date-help" class="sr-only">設定搜尋的日期範圍</div>
               </div>
-              <input class="search_keyword" name="keyword" id="keyword" type="text" value="" placeholder="請輸入關鍵字">
-              <button class="search_button">檢索</button>
+              
+              <label for="keyword" class="sr-only">關鍵字搜尋</label>
+              <input class="search_keyword" name="keyword" id="keyword" type="text" value="" placeholder="請輸入關鍵字" aria-describedby="keyword-help">
+              <div id="keyword-help" class="sr-only">輸入要搜尋的關鍵字</div>
+              
+              <button class="search_button" type="button" aria-describedby="search-help">檢索</button>
+              <div id="search-help" class="sr-only">執行搜尋</div>
             </div>
+            
             <div class="main_content_search_total_container">
-              <button class="search_button">檢索</button>
-              <div class="main_content_search_total">共<span>2488</span>筆資料</div>
+              <button class="search_button" type="button" aria-describedby="search-help">檢索</button>
+              <div class="main_content_search_total" role="status" aria-live="polite">
+                共<span>2488</span>筆資料
+              </div>
             </div>
-          </div>
+          </section>
+          
           <!-- result list -->
-          <div class="main_content_result">
+          <section class="main_content_result" role="region" aria-label="搜尋結果">
+            <h2 class="sr-only">電子文宣搜尋結果列表</h2>
             <div class="main_content_result_item">
-              <img src="/assets/images/list_example_1.webp" alt="result_item">
+              <img src="./assets/images/list_example_1.webp" alt="result_item">
               <div class="result_item_info">
                 <div class="result_item_info_title">2025年5月藝文活動月刊</div>
                 <div class="result_item_info_content">
                   <div class="result_item_info_content_col">
-                    <img src="/assets/images/person-fill.svg" alt="date">
+                    <img src="./assets/images/person-fill.svg" alt="date">
                     <p>114/05/28</p>
                   </div>
                   <div class="result_item_info_content_col">
-                    <img src="/assets/images/newspaper-white.svg" alt="amount">
+                    <img src="./assets/images/newspaper-white.svg" alt="amount">
                     <p>200,000</p>
                   </div>
                 </div>
@@ -155,16 +189,16 @@
               </div>
             </div>
             <div class="main_content_result_item">
-              <img src="/assets/images/list_example_5.webp" alt="result_item">
+              <img src="./assets/images/list_example_5.webp" alt="result_item">
               <div class="result_item_info">
                 <div class="result_item_info_title">2025年5月藝文活動月刊</div>
                 <div class="result_item_info_content">
                   <div class="result_item_info_content_col">
-                    <img src="/assets/images/person-fill.svg" alt="date">
+                    <img src="./assets/images/person-fill.svg" alt="date">
                     <p>114/05/28</p>
                   </div>
                   <div class="result_item_info_content_col">
-                    <img src="/assets/images/newspaper-white.svg" alt="amount">
+                    <img src="./assets/images/newspaper-white.svg" alt="amount">
                     <p>200,000</p>
                   </div>
                 </div>
@@ -172,16 +206,16 @@
               </div>
             </div>
             <div class="main_content_result_item">
-              <img src="/assets/images/list_example_2.webp" alt="result_item">
+              <img src="./assets/images/list_example_2.webp" alt="result_item">
               <div class="result_item_info">
                 <div class="result_item_info_title">2025年5月藝文活動月刊</div>
                 <div class="result_item_info_content">
                   <div class="result_item_info_content_col">
-                    <img src="/assets/images/person-fill.svg" alt="date">
+                    <img src="./assets/images/person-fill.svg" alt="date">
                     <p>114/05/28</p>
                   </div>
                   <div class="result_item_info_content_col">
-                    <img src="/assets/images/newspaper-white.svg" alt="amount">
+                    <img src="./assets/images/newspaper-white.svg" alt="amount">
                     <p>200,000</p>
                   </div>
                 </div>
@@ -189,16 +223,16 @@
               </div>
             </div>
             <div class="main_content_result_item">
-              <img src="/assets/images/list_example_3.webp" alt="result_item">
+              <img src="./assets/images/list_example_3.webp" alt="result_item">
               <div class="result_item_info">
                 <div class="result_item_info_title">2025年5月藝文活動月刊</div>
                 <div class="result_item_info_content">
                   <div class="result_item_info_content_col">
-                    <img src="/assets/images/person-fill.svg" alt="date">
+                    <img src="./assets/images/person-fill.svg" alt="date">
                     <p>114/05/28</p>
                   </div>
                   <div class="result_item_info_content_col">
-                    <img src="/assets/images/newspaper-white.svg" alt="amount">
+                    <img src="./assets/images/newspaper-white.svg" alt="amount">
                     <p>200,000</p>
                   </div>
                 </div>
@@ -206,16 +240,16 @@
               </div>
             </div>
             <div class="main_content_result_item">
-              <img src="/assets/images/list_example_4.webp" alt="result_item">
+              <img src="./assets/images/list_example_4.webp" alt="result_item">
               <div class="result_item_info">
                 <div class="result_item_info_title">2025年5月藝文活動月刊</div>
                 <div class="result_item_info_content">
                   <div class="result_item_info_content_col">
-                    <img src="/assets/images/person-fill.svg" alt="date">
+                    <img src="./assets/images/person-fill.svg" alt="date">
                     <p>114/05/28</p>
                   </div>
                   <div class="result_item_info_content_col">
-                    <img src="/assets/images/newspaper-white.svg" alt="amount">
+                    <img src="./assets/images/newspaper-white.svg" alt="amount">
                     <p>200,000</p>
                   </div>
                 </div>
@@ -223,16 +257,16 @@
               </div>
             </div>
             <div class="main_content_result_item">
-              <img src="/assets/images/list_example_3.webp" alt="result_item">
+              <img src="./assets/images/list_example_3.webp" alt="result_item">
               <div class="result_item_info">
                 <div class="result_item_info_title">2025年5月藝文活動月刊</div>
                 <div class="result_item_info_content">
                   <div class="result_item_info_content_col">
-                    <img src="/assets/images/person-fill.svg" alt="date">
+                    <img src="./assets/images/person-fill.svg" alt="date">
                     <p>114/05/28</p>
                   </div>
                   <div class="result_item_info_content_col">
-                    <img src="/assets/images/newspaper-white.svg" alt="amount">
+                    <img src="./assets/images/newspaper-white.svg" alt="amount">
                     <p>200,000</p>
                   </div>
                 </div>
@@ -240,16 +274,16 @@
               </div>
             </div>
             <div class="main_content_result_item">
-              <img src="/assets/images/list_example_5.webp" alt="result_item">
+              <img src="./assets/images/list_example_5.webp" alt="result_item">
               <div class="result_item_info">
                 <div class="result_item_info_title">2025年5月藝文活動月刊</div>
                 <div class="result_item_info_content">
                   <div class="result_item_info_content_col">
-                    <img src="/assets/images/person-fill.svg" alt="date">
+                    <img src="./assets/images/person-fill.svg" alt="date">
                     <p>114/05/28</p>
                   </div>
                   <div class="result_item_info_content_col">
-                    <img src="/assets/images/newspaper-white.svg" alt="amount">
+                    <img src="./assets/images/newspaper-white.svg" alt="amount">
                     <p>200,000</p>
                   </div>
                 </div>
@@ -257,16 +291,16 @@
               </div>
             </div>
             <div class="main_content_result_item">
-              <img src="/assets/images/list_example_6.webp" alt="result_item">
+              <img src="./assets/images/list_example_6.webp" alt="result_item">
               <div class="result_item_info">
                 <div class="result_item_info_title">2025年5月藝文活動月刊</div>
                 <div class="result_item_info_content">
                   <div class="result_item_info_content_col">
-                    <img src="/assets/images/person-fill.svg" alt="date">
+                    <img src="./assets/images/person-fill.svg" alt="date">
                     <p>114/05/28</p>
                   </div>
                   <div class="result_item_info_content_col">
-                    <img src="/assets/images/newspaper-white.svg" alt="amount">
+                    <img src="./assets/images/newspaper-white.svg" alt="amount">
                     <p>200,000</p>
                   </div>
                 </div>
@@ -274,16 +308,16 @@
               </div>
             </div>
             <div class="main_content_result_item">
-              <img src="/assets/images/list_example_3.webp" alt="result_item">
+              <img src="./assets/images/list_example_3.webp" alt="result_item">
               <div class="result_item_info">
                 <div class="result_item_info_title">2025年5月藝文活動月刊</div>
                 <div class="result_item_info_content">
                   <div class="result_item_info_content_col">
-                    <img src="/assets/images/person-fill.svg" alt="date">
+                    <img src="./assets/images/person-fill.svg" alt="date">
                     <p>114/05/28</p>
                   </div>
                   <div class="result_item_info_content_col">
-                    <img src="/assets/images/newspaper-white.svg" alt="amount">
+                    <img src="./assets/images/newspaper-white.svg" alt="amount">
                     <p>200,000</p>
                   </div>
                 </div>
@@ -291,16 +325,16 @@
               </div>
             </div>
             <div class="main_content_result_item">
-              <img src="/assets/images/list_example_7.webp" alt="result_item">
+              <img src="./assets/images/list_example_7.webp" alt="result_item">
               <div class="result_item_info">
                 <div class="result_item_info_title">2025年5月藝文活動月刊</div>
                 <div class="result_item_info_content">
                   <div class="result_item_info_content_col">
-                    <img src="/assets/images/person-fill.svg" alt="date">
+                    <img src="./assets/images/person-fill.svg" alt="date">
                     <p>114/05/28</p>
                   </div>
                   <div class="result_item_info_content_col">
-                    <img src="/assets/images/newspaper-white.svg" alt="amount">
+                    <img src="./assets/images/newspaper-white.svg" alt="amount">
                     <p>200,000</p>
                   </div>
                 </div>
@@ -308,105 +342,113 @@
               </div>
             </div>
             <div class="main_content_result_item">
-              <img src="/assets/images/list_example_2.webp" alt="result_item">
+              <img src="./assets/images/list_example_2.webp" alt="result_item">
               <div class="result_item_info">
                 <div class="result_item_info_title">2025年5月藝文活動月刊</div>
                 <div class="result_item_info_content">
                   <div class="result_item_info_content_col">
-                    <img src="/assets/images/person-fill.svg" alt="date">
+                    <img src="./assets/images/person-fill.svg" alt="date">
                     <p>114/05/28</p>
                   </div>
                   <div class="result_item_info_content_col">
-                    <img src="/assets/images/newspaper-white.svg" alt="amount">
+                    <img src="./assets/images/newspaper-white.svg" alt="amount">
                     <p>200,000</p>
                   </div>
                 </div>
                 <button class="result_item_info_button">立即查看</button>
               </div>
             </div>
-            <div class="main_content_result_item">
-              <img src="/assets/images/list_example_1.webp" alt="result_item">
+            <article class="main_content_result_item" role="article">
+              <img src="./assets/images/list_example_1.webp" alt="2025年5月藝文活動月刊封面">
               <div class="result_item_info">
-                <div class="result_item_info_title">2025年5月藝文活動月刊</div>
+                <h3 class="result_item_info_title">2025年5月藝文活動月刊</h3>
                 <div class="result_item_info_content">
                   <div class="result_item_info_content_col">
-                    <img src="/assets/images/person-fill.svg" alt="date">
-                    <p>114/05/28</p>
+                    <img src="./assets/images/person-fill.svg" alt="" aria-hidden="true">
+                    <p><span class="sr-only">發布日期：</span>114/05/28</p>
                   </div>
                   <div class="result_item_info_content_col">
-                    <img src="/assets/images/newspaper-white.svg" alt="amount">
-                    <p>200,000</p>
+                    <img src="./assets/images/newspaper-white.svg" alt="" aria-hidden="true">
+                    <p><span class="sr-only">發行量：</span>200,000</p>
                   </div>
                 </div>
-                <button class="result_item_info_button">立即查看</button>
+                <button class="result_item_info_button" type="button" aria-label="查看2025年5月藝文活動月刊詳細內容">立即查看</button>
               </div>
-            </div>
-          </div>
+            </article>
+          </section>
 
           <!-- pagination -->
-          <div class="common_pagination">
-            <a href="javascript:;" class="prev_page">
-              <img src="/assets/images/prev-gray.svg" alt="arrow">
+          <nav class="common_pagination" role="navigation" aria-label="分頁導航">
+            <a href="javascript:;" class="prev_page" aria-label="前一頁" aria-disabled="true">
+              <img src="./assets/images/prev-gray.svg" alt="" aria-hidden="true">
+              <span class="sr-only">前一頁</span>
             </a>
-            <a href="javascript:;" class="active">1</a>
-            <a href="javascript:;">2</a>
-            <a href="javascript:;">3</a>
-            <a href="javascript:;">4</a>
-            <a href="javascript:;">5</a>
-            <a href="javascript:;" class="next_page">
-              <img src="/assets/images/next.svg" alt="arrow">
+            <a href="javascript:;" class="active" aria-current="page" aria-label="第1頁，目前頁面">1</a>
+            <a href="javascript:;" aria-label="第2頁">2</a>
+            <a href="javascript:;" aria-label="第3頁">3</a>
+            <a href="javascript:;" aria-label="第4頁">4</a>
+            <a href="javascript:;" aria-label="第5頁">5</a>
+            <a href="javascript:;" class="next_page" aria-label="下一頁">
+              <img src="./assets/images/next.svg" alt="" aria-hidden="true">
+              <span class="sr-only">下一頁</span>
             </a>
-          </div>
+          </nav>
 
 
           <!-- back to top -->
-          <a class="back_top mobile_back_top" href="javascript:;" onclick="backToTop()">
+          <a class="back_top mobile_back_top" href="#" onclick="backToTop(); return false;" aria-label="回到頁面頂端">
             TOP
-            <img src="/assets/images/angle-up.svg" alt="back_top">
+            <img src="./assets/images/angle-up.svg" alt="" aria-hidden="true">
           </a>
-        </div>
-      </div>
+        </section>
+      </main>
       
       <!-- footer -->
-      <div class="main_footer">
+      <footer class="main_footer" role="contentinfo">
+        <a id="footer-start" class="access_link pl" accesskey="b" href="#footer-start" title="底部內容區塊">:::</a>
         <div class="main_footer_container">
           <!-- left -->
           <div class="main_footer_left">
-            <a href="/"><img class="main_footer_left_logo" src="/assets/images/logo.webp" alt="logo"></a>
-            <div class="main_footer_left_info">
-              <a href="https://maps.app.goo.gl/xng8h5YG975ax1Xh9" target="_blank" class="main_footer_left_info_item">
-                <img src="/assets/images/map.svg" alt="location">
+            <a href="/" aria-label="回到高雄市政府文化局首頁">
+              <img class="main_footer_left_logo" src="./assets/images/logo.webp" alt="高雄市政府文化局標誌">
+            </a>
+            <address class="main_footer_left_info">
+              <a href="https://maps.app.goo.gl/xng8h5YG975ax1Xh9" target="_blank" class="main_footer_left_info_item" aria-label="在Google地圖中查看高雄市政府文化局地址，開啟新視窗">
+                <img src="./assets/images/map.svg" alt="" aria-hidden="true">
                 <p>80252 高雄市五福一路67號</p>
               </a>
-              <a href="tel:07-222-5136" class="main_footer_left_info_item">
-                <img src="/assets/images/telephone.svg" alt="phone">
+              <a href="tel:07-222-5136" class="main_footer_left_info_item" aria-label="撥打電話07-222-5136">
+                <img src="./assets/images/telephone.svg" alt="" aria-hidden="true">
                 <p>07-222-5136</p>
               </a>
-            </div>
+            </address>
             <p class="main_footer_left_copyright">版權所有 © 高雄市政府文化局</p>
           </div>
           <!-- right -->
           <div class="main_footer_right">
-            <div class="platform">
-              <a href="javascript:;" target="_blank"><img src="/assets/images/youtube.svg" alt="youtube"></a>
-              <a href="javascript:;" target="_blank"><img src="/assets/images/ig.svg" alt="instagram"></a>
-              <a href="javascript:;" target="_blank"><img src="/assets/images/fb.svg" alt="facebook"></a>              
-              <a href="javascript:;" target="_blank"><img src="/assets/images/AA.png" alt="aa" class="aa_logo"></a>
+            <div class="platform" role="group" aria-label="社群媒體連結">
+            
+              <a href="https://www.facebook.com/chenchimai/?ref=embed_page#" target="_blank" aria-label="前往高雄市政府文化局Facebook粉絲專頁，開啟新視窗">
+                <img src="./assets/images/fb.svg" alt="Facebook">
+              </a>              
+              <a href="#" target="_blank" aria-label="網站通過無障礙AA等級檢測，開啟新視窗查看證書">
+                <img src="./assets/images/AA.png" alt="無障礙網頁AA等級標章" class="aa_logo">
+              </a>
             </div>
             <div>
               <div class="link">
-                <a href="javascript:;">資訊安全政策宣告</a>
-                <a href="javascript:;">隱私權宣告</a>
+                <a href="/security.html" aria-label="查看資訊安全政策宣告">資訊安全政策宣告</a>
+                <a href="/privacy.html" aria-label="查看隱私權宣告">隱私權宣告</a>
               </div>
               <div class="ps">最佳瀏覽環境IE9以上 | 最佳瀏覽解析度1024X768 </div>
             </div>
-            <a class="back_top" href="javascript:;" onclick="backToTop()">
+            <a class="back_top" href="#" onclick="backToTop(); return false;" aria-label="回到頁面頂端">
               TOP
-              <img src="/assets/images/angle-up.svg" alt="back_top">
+              <img src="./assets/images/angle-up.svg" alt="" aria-hidden="true">
             </a>
           </div>
         </div>
-      </div>
+      </footer>
     </div>
     <script>
       // Banner 輪播圖
@@ -424,6 +466,7 @@
     <!-- jquery  -->
     <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
     <!-- 共用方法 -->
-    <script src="/assets/js/common.js"></script>
+    <script src="./assets/js/common.js"></script>
   </body>
+</html>
 </html>

@@ -23,12 +23,116 @@ img {
   vertical-align: middle;
   object-fit: cover;
 }
+
+/* 無障礙 CSS 樣式 */
+/* 跳過導航連結 */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: #000;
+  color: #fff;
+  padding: 8px;
+  z-index: 10000;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 6px;
+  outline: 3px solid #40A7AB;
+  outline-offset: 2px;
+}
+
+/* Screen Reader Only 文字 */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* 焦點指示器 - 覆蓋原本的 outline: none */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus,
+[tabindex]:focus {
+  outline: 3px solid #40A7AB !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 1px rgba(64, 167, 171, 0.3) !important;
+}
+
+/* 確保所有互動元素都有 cursor pointer */
+a,
+button,
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+select,
+[role="button"],
+[tabindex="0"] {
+  cursor: pointer;
+}
+
+/* 改善按鈕的無障礙性 */
+button:disabled,
+input:disabled,
+select:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* 高對比模式支援 */
+@media (prefers-contrast: high) {
+  .skip-link {
+    background: #000;
+    color: #fff;
+    border: 2px solid #fff;
+  }
+  
+  a:focus,
+  button:focus,
+  input:focus,
+  select:focus,
+  textarea:focus,
+  [tabindex]:focus {
+    outline: 4px solid #000 !important;
+    outline-offset: 2px !important;
+  }
+}
+
+/* 減少動畫偏好支援 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* 移除原本有問題的樣式覆蓋 */
 input,select{
   user-select: none;
-  outline: none;
+  /* outline: none; - 移除這行以支援無障礙 */
 }
 button{
-  outline: none;
+  /* outline: none; - 移除這行以支援無障礙 */
   border: none;
   box-shadow: none;
   background: none;
@@ -39,11 +143,56 @@ a, .cursor,button{
   cursor: pointer;
   text-decoration: none;
 }
+
+/* 保留hover效果但改善focus狀態 */
 a:hover, .cursor:hover, button:hover{
   opacity: .8;
 }
 a:active, .cursor:active, button:active{
   opacity: .6;
+}
+
+/* 改善行動版選單按鈕的無障礙性 */
+.header_right_mobile[aria-expanded="true"] {
+  background-color: rgba(64, 167, 171, 0.1);
+}
+
+/* 改善分頁導航的無障礙性 */
+.common_pagination a[aria-disabled="true"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.common_pagination a[aria-current="page"] {
+  font-weight: bold;
+}
+
+/* 改善輪播控制的無障礙性 */
+.swiper-pagination-bullet:focus {
+  outline: 3px solid #40A7AB !important;
+  outline-offset: 2px !important;
+}
+
+/* 改善表單標籤的視覺層次 */
+label {
+  font-weight: 500;
+  margin-bottom: 4px;
+  display: block;
+}
+
+/* 確保錯誤訊息對比度足夠 */
+.error-message {
+  color: #d32f2f;
+  font-weight: 500;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+/* 改善狀態訊息的可見性 */
+[role="status"],
+[role="alert"] {
+  font-weight: 500;
 }
 
 .hps_view {
@@ -126,7 +275,7 @@ a:active, .cursor:active, button:active{
   background-color: #fff;
 }
 .header_container{
-  padding: 17.5px 40px;
+  padding: 0px 40px 17.5px 40px;
   width: 100%;
   margin: 0 auto;
   max-width: 1440px;
@@ -248,6 +397,7 @@ a:active, .cursor:active, button:active{
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  margin: 2px;
 }
 
 .mobile_menu nav a::before {
@@ -395,14 +545,16 @@ a:active, .cursor:active, button:active{
   background: linear-gradient(270deg, rgba(17, 19, 25, 0) 0%, #111319 100%);
   z-index: 2;
   padding-left: 90px;
-  padding-top: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .banner_info_content{
   color: #FFFFFF;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin-bottom: 98px;
+  margin-bottom: 60px;
   width: 400px;
 }
 .banner_info_content .info_type{
@@ -462,7 +614,9 @@ a:active, .cursor:active, button:active{
 
 
 
-
+main{
+  flex: 1;
+}
 .main_content{
   max-width: 1200px;
   margin: 0 auto;
@@ -697,7 +851,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   max-width: 1440px;
   margin: 0 auto;
 
-  padding: 64px 26px 64px  50px;
+  padding: 41px 26px 64px  50px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -790,12 +944,42 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   width: 20px;
   height: 20px;
 }
+.access_link.pl{
+  padding-left: 5px;
+}
 
+.common_title{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: 15px;
+  margin-bottom: 30px;
+}
+.common_title .en_title{
+  font-size: 14px;
+  color: #868686;
+}
+.common_title .ch_title{
+  font-size: 32px;
+  font-weight: 600;
+  color: #000000;
+}
+.common_title .line{
+  margin-top: 7px;
+  width: 73px;
+  height: 5px;
+  background: #40A7AB;
+}
+.common_content{
+  letter-spacing: 0.02em;
+  color: #000;
+  font-size: 16px;
+  line-height: 1.5;
+}
 
 
 @media (max-width: 1300px) {
   .banner_info{
-    padding-top: 50px;
     padding-left: 40px;
   }
 }
@@ -845,6 +1029,13 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   display: none;
 }
 
+
+
+
+
+
+
+
 @media (max-width: 900px) {
   .search_button{
     display: none;
@@ -859,7 +1050,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     flex-direction: column;
     align-items: flex-start;
     gap: 40px;
-    padding: 40px 30px;
+    padding: 17px 30px 40px;
   }
   .main_footer_container .main_footer_right{
     align-items: flex-start;
