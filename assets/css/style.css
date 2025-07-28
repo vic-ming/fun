@@ -278,7 +278,7 @@ label {
   padding: 0px 40px 17.5px 40px;
   width: 100%;
   margin: 0 auto;
-  max-width: 1440px;
+  max-width: 1360px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -589,6 +589,10 @@ label {
   color: #FFFFFF;
   font-size: 16px;
   font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
 }
 .banner_cover{
   position: absolute;
@@ -618,10 +622,14 @@ main{
   flex: 1;
 }
 .main_content{
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 60px 0;
 }
+.main_content.index_main_content{
+  max-width: 1280px;
+}
+
 .main_content .main_content_title{
   margin-bottom: 30px;
 }
@@ -857,7 +865,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 .main_footer_container{
   width: 100%;
-  max-width: 1440px;
+  max-width: 1360px;
   margin: 0 auto;
 
   padding: 41px 26px 64px  50px;
